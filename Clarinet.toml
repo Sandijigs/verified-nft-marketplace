@@ -6,7 +6,7 @@ telemetry = false
 cache_dir = "./.cache"
 requirements = []
 
-[contracts.verified-marketplace]
+[contracts.verified-marketplace-v2]
 path = "contracts/verified-marketplace.clar"
 clarity_version = 4
 epoch = 3.3

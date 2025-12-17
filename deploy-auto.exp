@@ -1,0 +1,17 @@
+#!/usr/bin/expect -f
+
+set timeout 300
+
+spawn clarinet deployments apply --testnet
+
+expect {
+    "Overwrite? *" {
+        send "Y\r"
+        exp_continue
+    }
+    "Continue *" {
+        send "Y\r"
+        exp_continue
+    }
+    eof
+}

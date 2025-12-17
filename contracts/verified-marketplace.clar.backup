@@ -133,18 +133,18 @@
 ;; Check if contract is verified using contract-hash?
 (define-read-only (is-contract-verified (nft-contract principal))
   (match (contract-hash? nft-contract)
-    ok-hash (match (map-get? verified-contracts { contract-hash: ok-hash })
+    hash (match (map-get? verified-contracts { contract-hash: hash })
            info (get is-active info)
            false)
-    err-val false
+    false
   )
 )
 
 ;; Get verified contract info
 (define-read-only (get-contract-info (nft-contract principal))
   (match (contract-hash? nft-contract)
-    ok-hash (map-get? verified-contracts { contract-hash: ok-hash })
-    err-val none
+    hash (map-get? verified-contracts { contract-hash: hash })
+    none
   )
 )
 
@@ -212,10 +212,10 @@
 ;; Get collection stats
 (define-read-only (get-collection-stats (nft-contract principal))
   (match (contract-hash? nft-contract)
-    ok-hash (default-to
+    hash (default-to 
            { total-volume: u0, total-sales: u0, floor-price: u0, highest-sale: u0 }
-           (map-get? collection-stats { contract-hash: ok-hash }))
-    err-val { total-volume: u0, total-sales: u0, floor-price: u0, highest-sale: u0 }
+           (map-get? collection-stats { contract-hash: hash }))
+    { total-volume: u0, total-sales: u0, floor-price: u0, highest-sale: u0 }
   )
 )
 
@@ -455,12 +455,12 @@
     
     ;; Refund previous highest bidder
     (match (get highest-bidder auction)
-      prev-bidder (try! (stx-transfer? current-highest CONTRACT_OWNER prev-bidder))
+      prev-bidder (try! (as-contract (stx-transfer? current-highest tx-sender prev-bidder)))
       true
     )
     
-    ;; Accept new bid (escrow to contract owner)
-    (try! (stx-transfer? bid-amount tx-sender CONTRACT_OWNER))
+    ;; Accept new bid (escrow)
+    (try! (stx-transfer? bid-amount tx-sender (as-contract tx-sender)))
     
     ;; Update auction
     (map-set auctions
@@ -510,15 +510,15 @@
     (asserts! (>= winning-bid (get reserve-price auction)) ERR_BID_TOO_LOW)
     
     ;; Transfer payment to seller (from escrow)
-    (try! (stx-transfer? (get seller-proceeds fees) CONTRACT_OWNER seller))
+    (try! (as-contract (stx-transfer? (get seller-proceeds fees) tx-sender seller)))
     
     ;; Transfer marketplace fee
-    (try! (stx-transfer? (get marketplace-fee fees) CONTRACT_OWNER CONTRACT_OWNER))
+    (try! (as-contract (stx-transfer? (get marketplace-fee fees) tx-sender CONTRACT_OWNER)))
     
     ;; Transfer royalty if applicable
     (if (> (get royalty-fee fees) u0)
       (match contract-info
-        info (try! (stx-transfer? (get royalty-fee fees) CONTRACT_OWNER (get royalty-recipient info)))
+        info (try! (as-contract (stx-transfer? (get royalty-fee fees) tx-sender (get royalty-recipient info))))
         true)
       true
     )
@@ -554,7 +554,7 @@
     (if (is-eq (get listing-type listing) "AUCTION")
       (match (map-get? auctions { listing-id: listing-id })
         auction (match (get highest-bidder auction)
-                  bidder (try! (stx-transfer? (get highest-bid auction) CONTRACT_OWNER bidder))
+                  bidder (try! (as-contract (stx-transfer? (get highest-bid auction) tx-sender bidder)))
                   true)
         true)
       true

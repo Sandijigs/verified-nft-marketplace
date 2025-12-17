@@ -1,0 +1,16 @@
+[project]
+name = "verified-nft-marketplace"
+description = "NFT marketplace with contract verification using Clarity 4"
+authors = ["Stacks Builder"]
+telemetry = false
+cache_dir = "./.cache"
+requirements = []
+
+[contracts.verified-marketplace]
+path = "contracts/verified-marketplace.clar"
+clarity_version = 4
+epoch = 3.3
+
+[repl.analysis]
+passes = ["check_checker"]
+check_checker = { trusted_sender = false, trusted_caller = false, callee_filter = false }

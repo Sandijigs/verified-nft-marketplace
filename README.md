@@ -10,6 +10,7 @@ An NFT marketplace that only allows verified/audited NFT contracts, built with *
 - ✅ **Best practices .gitignore** - Excludes cache, secrets, and build artifacts
 - ✅ **Event logging** - Comprehensive tracking for monitoring
 - ✅ **Ready for testnet deployment**
+- ✅ **Week 3 Builder Challenge** - WalletKit SDK integration complete
 
 ## 🎯 Clarity 4 Features Used
 
@@ -125,13 +126,62 @@ The project is pre-configured with:
 | `calculate-fees` | Calculate marketplace + royalty fees |
 | `generate-provenance` | Create provenance string |
 
-## 🏆 Builder Challenge Points
+## 🏆 Builder Challenge
 
+### Week 3 Challenge ✅
+- ✅ **WalletKit SDK Integration** - @stacks/connect v7.10.0
+- ✅ **Multi-Wallet Support** - Hiro, Xverse, Leather, OKX
+- ✅ **WalletConnect Project ID** - 973aec75d9c96397c8ccd94d62bada81
+- ✅ **User Tracking** - Active wallet connection and transaction events
+- ✅ **Fee Tracking** - Marketplace (2.5%) + Royalty (up to 10%) monitoring
+- ✅ **Reown AppKit** - Optional advanced integration configured
+
+### Clarity 4 Features ✅
 - ✅ `contract-hash?` for NFT verification
 - ✅ `stacks-block-time` for auctions
 - ✅ `to-ascii?` for provenance
 - ✅ Royalty enforcement
 - ✅ Complete auction system
+
+## 🌐 Frontend Application (Week 3)
+
+### Quick Start
+```bash
+# Navigate to frontend
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+### Features
+- **Multi-Wallet Connection**: Hiro, Xverse, Leather, OKX wallets
+- **WalletKit SDK**: Seamless wallet integration via WalletConnect
+- **NFT Marketplace UI**: Browse, list, and trade verified NFTs
+- **Auction System**: Real-time bidding interface
+- **User Dashboard**: Track listings, bids, and transactions
+- **Fee Analytics**: Monitor marketplace and royalty fees
+
+### Week 3 Integration Details
+
+**WalletConnect Configuration**:
+- Project ID: `973aec75d9c96397c8ccd94d62bada81`
+- Location: `frontend/src/config/walletConfig.js`
+- SDK: @stacks/connect v7.10.0
+
+**Multi-Wallet Support**:
+- Hiro Wallet
+- Xverse
+- Leather
+- OKX Wallet
+
+**Tracking & Analytics**:
+- User connections tracked for leaderboard
+- Transaction fees monitored (marketplace + royalties)
+- Event logging for Builder Challenge metrics
 
 ## 📜 License
 

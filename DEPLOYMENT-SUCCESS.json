@@ -1,0 +1,9 @@
+{
+  "txId": "e14d687e34b443f27608cde700a0c75d24d16bdcf3cf32af9f0c86d6e12e427e",
+  "contractName": "verified-marketplace",
+  "deployer": "SP12KRGRZ2N2Q5B8HKXHETGRD0JVF282TAA3R3HXX",
+  "network": "testnet",
+  "timestamp": "2025-12-28T10:38:26.020Z",
+  "explorerUrl": "https://explorer.hiro.so/txid/e14d687e34b443f27608cde700a0c75d24d16bdcf3cf32af9f0c86d6e12e427e?chain=testnet",
+  "contractUrl": "https://explorer.hiro.so/txid/SP12KRGRZ2N2Q5B8HKXHETGRD0JVF282TAA3R3HXX.verified-marketplace?chain=testnet"
+}

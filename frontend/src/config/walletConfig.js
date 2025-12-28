@@ -19,14 +19,14 @@ export const NETWORK_CONFIG = {
 export const NETWORK = NETWORK_CONFIG.testnet;
 export const NETWORK_NAME = 'testnet';
 
-// Contract Configuration
+// Contract Configuration (Updated December 27, 2025)
 export const CONTRACT_CONFIG = {
-  address: 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM',
+  address: 'SP12KRGRZ2N2Q5B8HKXHETGRD0JVF282TAA3R3HXX',
   name: 'verified-marketplace',
   network: NETWORK,
-  fullId: 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.verified-marketplace',
-  // Note: Contract ready but pending full Clarity 4 testnet support
-  status: 'development', // Will be 'deployed' once testnet supports Clarity 4
+  fullId: 'SP12KRGRZ2N2Q5B8HKXHETGRD0JVF282TAA3R3HXX.verified-marketplace',
+  deploymentTx: 'e14d687e34b443f27608cde700a0c75d24d16bdcf3cf32af9f0c86d6e12e427e',
+  status: 'deployed'
 };
 
 // App Configuration for Stacks Connect

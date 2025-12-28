@@ -4,13 +4,24 @@ An NFT marketplace that only allows verified/audited NFT contracts, built with *
 
 ## ✅ Project Status
 
+- ✅ **Deployed to Testnet** - Live on Stacks Testnet
 - ✅ **Clarity 4 compatible** - Using Clarinet 3.11.0+
 - ✅ **Epoch 3.3** - Configured in Clarinet.toml
 - ✅ **All tests passing** - 27 comprehensive tests included
 - ✅ **Best practices .gitignore** - Excludes cache, secrets, and build artifacts
 - ✅ **Event logging** - Comprehensive tracking for monitoring
-- ✅ **Ready for testnet deployment**
 - ✅ **Week 3 Builder Challenge** - WalletKit SDK integration complete
+
+## 🚀 Deployed Contract
+
+**Network**: Stacks Testnet
+**Contract**: `SP12KRGRZ2N2Q5B8HKXHETGRD0JVF282TAA3R3HXX.verified-marketplace`
+**Deployer**: `SP12KRGRZ2N2Q5B8HKXHETGRD0JVF282TAA3R3HXX`
+**Transaction ID**: `e14d687e34b443f27608cde700a0c75d24d16bdcf3cf32af9f0c86d6e12e427e`
+**Deployed**: December 27, 2025
+**Contract Size**: 18,039 bytes
+**Explorer**: [View Transaction](https://explorer.hiro.so/txid/e14d687e34b443f27608cde700a0c75d24d16bdcf3cf32af9f0c86d6e12e427e?chain=testnet)
+**Contract URL**: [View Contract](https://explorer.hiro.so/txid/SP12KRGRZ2N2Q5B8HKXHETGRD0JVF282TAA3R3HXX.verified-marketplace?chain=testnet)
 
 ## 🎯 Clarity 4 Features Used
 
